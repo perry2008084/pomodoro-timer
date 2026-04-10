@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🍅 Pomodoro Timer Settings</h1>
+
+    <div class="settings-form">
+      <div class="form-group">
+        <label for="pomodoro-duration">Focus Duration (minutes)</label>
+        <input type="number" id="pomodoro-duration" min="1" max="120" value="25">
+      </div>
+
+      <div class="form-group">
+        <label for="short-break-duration">Short Break Duration (minutes)</label>
+        <input type="number" id="short-break-duration" min="1" max="60" value="5">
+      </div>
+
+      <div class="form-group">
+        <label for="long-break-duration">Long Break Duration (minutes)</label>
+        <input type="number" id="long-break-duration" min="1" max="60" value="15">
+      </div>
+
+      <div class="form-group">
+        <label for="long-break-interval">Long Break After (pomodoros)</label>
+        <input type="number" id="long-break-interval" min="1" max="10" value="4">
+      </div>
+
+      <div class="actions">
+        <button id="btn-save" class="btn btn-primary">Save Settings</button>
+        <button id="btn-reset" class="btn btn-secondary">Reset to Defaults</button>
+      </div>
+
+      <div id="status-message" class="status-message"></div>
+    </div>
+
+    <div class="footer">
+      <a href="#" id="btn-back">← Back to Timer</a>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  width: 320px;
+  background: #1a1a2e;
+  color: #eaeaea;
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff6b6b;
+  margin-bottom: 16px;
+}
+
+.mode-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: #16213e;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.mode-tab {
+  flex: 1;
+  padding: 8px 4px;
+  border: none;
+  background: transparent;
+  color: #888;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.mode-tab.active {
+  background: #e94560;
+  color: white;
+}
+
+.mode-tab:hover:not(.active) {
+  color: #ccc;
+}
+
+.timer-display {
+  font-size: 56px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+  margin: 20px 0;
+  color: #fff;
+}
+
+.timer-display.running {
+  color: #4ecca3;
+}
+
+.timer-display.paused {
+  color: #ffc107;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #16213e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e94560, #ff6b6b);
+  border-radius: 2px;
+  width: 100%;
+  transition: width 1s linear;
+}
+
+.progress-fill.shortBreak {
+  background: linear-gradient(90deg, #4ecca3, #45b7aa);
+}
+
+.progress-fill.longBreak {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.session-info {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #4ecca3;
+  color: #1a1a2e;
+}
+
+.btn-primary:hover {
+  background: #45b7aa;
+}
+
+.btn-warning {
+  background: #ffc107;
+  color: #1a1a2e;
+}
+
+.btn-warning:hover {
+  background: #e6ac00;
+}
+
+.btn-danger {
+  background: #e94560;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #d63851;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 12px;
+  border-top: 1px solid #16213e;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.btn-link:hover {
+  color: #4ecca3;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🍅 Pomodoro</h1>
+    </div>
+
+    <div class="mode-tabs">
+      <button class="mode-tab active" data-mode="pomodoro">Focus</button>
+      <button class="mode-tab" data-mode="shortBreak">Short Break</button>
+      <button class="mode-tab" data-mode="longBreak">Long Break</button>
+    </div>
+
+    <div class="timer-display">
+      <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <div class="session-info">
+      <span id="session-count">Pomodoro 0/4</span>
+    </div>
+
+    <div class="controls">
+      <button id="btn-start" class="btn btn-primary">Start</button>
+      <button id="btn-pause" class="btn btn-warning" style="display:none">Pause</button>
+      <button id="btn-resume" class="btn btn-primary" style="display:none">Resume</button>
+      <button id="btn-stop" class="btn btn-danger" style="display:none">Stop</button>
+    </div>
+
+    <div class="footer">
+      <button id="btn-settings" class="btn-link" title="Settings">⚙ Settings</button>
+      <button id="btn-stats" class="btn-link" title="Statistics">📊 Stats</button>
+    </div>
+  </div>
+
+  <script src="../core/timer-engine.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

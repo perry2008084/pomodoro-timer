@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #eaeaea;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff6b6b;
+  margin-bottom: 32px;
+  font-size: 24px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: #16213e;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #4ecca3;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #888;
+}
+
+.heatmap-section {
+  background: #16213e;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #888;
+}
+
+.legend-colors {
+  display: flex;
+  gap: 2px;
+}
+
+.legend-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.month-labels {
+  display: flex;
+  padding-left: 40px;
+  margin-bottom: 4px;
+  font-size: 11px;
+  color: #888;
+}
+
+.month-label {
+  flex: 1;
+  text-align: left;
+}
+
+.heatmap-container {
+  display: flex;
+  gap: 8px;
+}
+
+.day-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: flex-start;
+  padding-top: 0;
+  font-size: 10px;
+  color: #888;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.day-labels span {
+  height: 13px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.day-labels span:nth-child(1) { margin-top: 0; }
+.day-labels span:nth-child(2) { margin-top: 26px; }
+.day-labels span:nth-child(3) { margin-top: 26px; }
+
+.heatmap-grid {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.heatmap-week {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.heatmap-cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  background: #ebedf0;
+  cursor: pointer;
+  position: relative;
+  transition: outline 0.1s;
+}
+
+.heatmap-cell:hover {
+  outline: 2px solid #4ecca3;
+  outline-offset: 1px;
+}
+
+.heatmap-cell.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.heatmap-cell[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2a2a4a;
+  color: #eaeaea;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  margin-bottom: 4px;
+}
+
+.detail-section {
+  background: #16213e;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.detail-section h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #4ecca3;
+}
+
+.session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.session-item:last-child {
+  border-bottom: none;
+}
+
+.session-type {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.session-type.pomodoro { color: #ff6b6b; }
+.session-type.shortBreak { color: #4ecca3; }
+.session-type.longBreak { color: #3498db; }
+
+.session-duration {
+  font-size: 13px;
+  color: #888;
+}
+
+.session-time {
+  font-size: 12px;
+  color: #666;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #4ecca3;
+  color: #1a1a2e;
+}
+
+.btn-primary:hover {
+  background: #45b7aa;
+}
+
+.btn-danger {
+  background: #e94560;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #d63851;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.footer a {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: #4ecca3;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer - Statistics</title>
+  <link rel="stylesheet" href="stats.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Pomodoro Statistics</h1>
+
+    <div class="summary">
+      <div class="stat-card">
+        <div class="stat-value" id="total-pomodoros">0</div>
+        <div class="stat-label">Total Pomodoros</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="total-hours">0h</div>
+        <div class="stat-label">Total Focus Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="current-streak">0</div>
+        <div class="stat-label">Day Streak</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="today-pomodoros">0</div>
+        <div class="stat-label">Today</div>
+      </div>
+    </div>
+
+    <div class="heatmap-section">
+      <div class="section-header">
+        <h2>Daily Activity</h2>
+        <div class="legend">
+          <span>Less</span>
+          <div class="legend-colors">
+            <div class="legend-cell" style="background:#ebedf0"></div>
+            <div class="legend-cell" style="background:#9be9a8"></div>
+            <div class="legend-cell" style="background:#40c463"></div>
+            <div class="legend-cell" style="background:#30a14e"></div>
+            <div class="legend-cell" style="background:#216e39"></div>
+          </div>
+          <span>More</span>
+        </div>
+      </div>
+      <div class="month-labels" id="month-labels"></div>
+      <div class="heatmap-container" id="heatmap-container">
+        <div class="day-labels">
+          <span>Mon</span>
+          <span>Wed</span>
+          <span>Fri</span>
+        </div>
+        <div class="heatmap-grid" id="heatmap-grid"></div>
+      </div>
+    </div>
+
+    <div class="detail-section" id="detail-section" style="display:none">
+      <h2 id="detail-date"></h2>
+      <div id="detail-sessions"></div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-export" class="btn btn-primary">📥 Export JSON</button>
+      <button id="btn-clear" class="btn btn-danger">🗑 Clear All Data</button>
+    </div>
+
+    <div class="footer">
+      <a href="#" id="btn-back">← Back to Timer</a>
+    </div>
+  </div>
+
+  <script src="stats.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #eaeaea;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff6b6b;
+  margin-bottom: 32px;
+  font-size: 24px;
+}
+
+.settings-form {
+  background: #16213e;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  color: #eaeaea;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #4ecca3;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #4ecca3;
+  color: #1a1a2e;
+}
+
+.btn-primary:hover {
+  background: #45b7aa;
+}
+
+.btn-secondary {
+  background: #2a2a4a;
+  color: #eaeaea;
+}
+
+.btn-secondary:hover {
+  background: #3a3a5a;
+}
+
+.status-message {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.status-message.success {
+  color: #4ecca3;
+  opacity: 1;
+}
+
+.status-message.error {
+  color: #e94560;
+  opacity: 1;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.footer a {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: #4ecca3;
+}
