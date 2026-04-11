@@ -11,6 +11,7 @@
   const btnExport = document.getElementById("btn-export");
   const btnClear = document.getElementById("btn-clear");
   const btnBack = document.getElementById("btn-back");
+  const tooltip = document.getElementById("heatmap-tooltip");
 
   function sendMessage(message) {
     return new Promise((resolve) => {
@@ -109,8 +110,20 @@
         const cell = document.createElement("div");
         cell.className = "heatmap-cell";
         cell.style.background = getColor(day.minutes);
-        cell.dataset.tooltip = `${day.date}: ${day.minutes} min`;
         cell.dataset.date = day.date;
+
+        cell.addEventListener("mouseenter", (e) => {
+          tooltip.textContent = `${day.date}: ${day.minutes} min`;
+          tooltip.classList.add("visible");
+          const rect = cell.getBoundingClientRect();
+          tooltip.style.left = (rect.left + rect.width / 2) + "px";
+          tooltip.style.top = (rect.top - 32) + "px";
+          tooltip.style.transform = "translateX(-50%)";
+        });
+
+        cell.addEventListener("mouseleave", () => {
+          tooltip.classList.remove("visible");
+        });
 
         cell.addEventListener("click", () => {
           showDayDetail(day.date, day.data);

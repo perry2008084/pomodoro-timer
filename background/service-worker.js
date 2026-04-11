@@ -6,6 +6,7 @@ const STORAGE_SETTINGS_KEY = "settings";
 const STORAGE_RECORDS_KEY = "records";
 
 let engine = null;
+let initPromise = null;
 
 async function init() {
   const data = await chrome.storage.local.get([
@@ -25,6 +26,8 @@ async function init() {
     }
   }
 }
+
+initPromise = init();
 
 async function saveState() {
   await chrome.storage.local.set({
@@ -108,6 +111,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 async function handleMessage(message) {
+  // Wait for init to complete before handling any messages
+  if (initPromise) await initPromise;
+  if (!engine) {
+    console.error("TimerEngine not initialized");
+    return { error: "Engine not ready" };
+  }
   switch (message.type) {
     case "getState": {
       return engine.getState();

@@ -134,6 +134,7 @@ h1 {
   gap: 2px;
   flex: 1;
   overflow-x: auto;
+  overflow-y: visible;
 }
 
 .heatmap-week {
@@ -160,23 +161,6 @@ h1 {
 .heatmap-cell.empty {
   background: transparent;
   cursor: default;
-}
-
-.heatmap-cell[data-tooltip]:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #2a2a4a;
-  color: #eaeaea;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  white-space: nowrap;
-  z-index: 10;
-  pointer-events: none;
-  margin-bottom: 4px;
 }
 
 .detail-section {
@@ -271,4 +255,23 @@ h1 {
 
 .footer a:hover {
   color: #4ecca3;
+}
+
+.heatmap-tooltip {
+  position: fixed;
+  background: #2a2a4a;
+  color: #eaeaea;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.heatmap-tooltip.visible {
+  opacity: 1;
 }
