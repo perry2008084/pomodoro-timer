@@ -1,4 +1,4 @@
-importScripts("../core/timer-engine.js");
+import { TimerEngine, getDefaultSettings, formatDate, createRecord } from "../core/timer-engine.js";
 
 const ALARM_NAME = "pomodoro-timer";
 const STORAGE_TIMER_KEY = "timerState";

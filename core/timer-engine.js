@@ -1,11 +1,11 @@
-const DEFAULT_SETTINGS = {
+export const DEFAULT_SETTINGS = {
   pomodoroDuration: 25,
   shortBreakDuration: 5,
   longBreakDuration: 15,
   longBreakInterval: 4,
 };
 
-class TimerEngine {
+export class TimerEngine {
   constructor(settings = {}) {
     this.mode = "pomodoro";
     this.status = "idle";
@@ -163,11 +163,11 @@ class TimerEngine {
   }
 }
 
-function getDefaultSettings() {
+export function getDefaultSettings() {
   return { ...DEFAULT_SETTINGS };
 }
 
-function formatDate(date) {
+export function formatDate(date) {
   const d = new Date(date);
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, "0");
@@ -175,13 +175,13 @@ function formatDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-function formatTime(totalSeconds) {
+export function formatTime(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
   return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
-function createRecord(date, session) {
+export function createRecord(date, session) {
   return {
     date,
     type: session.mode,
@@ -190,13 +190,5 @@ function createRecord(date, session) {
   };
 }
 
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = {
-    TimerEngine,
-    getDefaultSettings,
-    formatDate,
-    formatTime,
-    createRecord,
-    DEFAULT_SETTINGS,
-  };
-}
+// ES module exports (Manifest V3 service worker uses import)
+// TimerEngine is available as a global from the import above
