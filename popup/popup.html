@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro Timer</title>
+  <title data-i18n="appTitle">Pomodoro Timer</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>🍅 Pomodoro</h1>
+      <h1 data-i18n="popupHeading">🍅 Pomodoro</h1>
     </div>
 
     <div class="mode-tabs">
-      <button class="mode-tab active" data-mode="pomodoro">Focus</button>
-      <button class="mode-tab" data-mode="shortBreak">Short Break</button>
-      <button class="mode-tab" data-mode="longBreak">Long Break</button>
+      <button class="mode-tab active" data-mode="pomodoro" data-i18n="modeFocus">Focus</button>
+      <button class="mode-tab" data-mode="shortBreak" data-i18n="modeShortBreak">Short Break</button>
+      <button class="mode-tab" data-mode="longBreak" data-i18n="modeLongBreak">Long Break</button>
     </div>
 
     <div class="timer-display">
@@ -31,18 +31,19 @@
     </div>
 
     <div class="controls">
-      <button id="btn-start" class="btn btn-primary">Start</button>
-      <button id="btn-pause" class="btn btn-warning" style="display:none">Pause</button>
-      <button id="btn-resume" class="btn btn-primary" style="display:none">Resume</button>
-      <button id="btn-stop" class="btn btn-danger" style="display:none">Stop</button>
+      <button id="btn-start" class="btn btn-primary" data-i18n="start">Start</button>
+      <button id="btn-pause" class="btn btn-warning" style="display:none" data-i18n="pause">Pause</button>
+      <button id="btn-resume" class="btn btn-primary" style="display:none" data-i18n="resume">Resume</button>
+      <button id="btn-stop" class="btn btn-danger" style="display:none" data-i18n="stop">Stop</button>
     </div>
 
     <div class="footer">
-      <button id="btn-settings" class="btn-link" title="Settings">⚙ Settings</button>
-      <button id="btn-stats" class="btn-link" title="Statistics">📊 Stats</button>
+      <button id="btn-settings" class="btn-link" title="Settings" data-i18n-title="settings" data-i18n="settings">⚙ Settings</button>
+      <button id="btn-stats" class="btn-link" title="Statistics" data-i18n-title="stats" data-i18n="stats">📊 Stats</button>
     </div>
   </div>
 
+  <script src="../core/i18n.js"></script>
   <script src="../core/timer-engine.js"></script>
   <script src="popup.js"></script>
 </body>

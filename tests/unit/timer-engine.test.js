@@ -23,6 +23,8 @@ describe("TimerEngine", () => {
       expect(engine.settings.shortBreakDuration).toBe(5);
       expect(engine.settings.longBreakDuration).toBe(15);
       expect(engine.settings.longBreakInterval).toBe(4);
+      expect(engine.settings.language).toBe("en");
+      expect(engine.settings.autoPauseEnabled).toBe(false);
     });
 
     test("should accept custom settings", () => {
@@ -224,6 +226,8 @@ describe("Utility functions", () => {
       expect(settings.shortBreakDuration).toBe(5);
       expect(settings.longBreakDuration).toBe(15);
       expect(settings.longBreakInterval).toBe(4);
+      expect(settings.language).toBe("en");
+      expect(settings.autoPauseEnabled).toBe(false);
     });
   });
 

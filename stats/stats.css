@@ -57,6 +57,46 @@ h1 {
   margin-bottom: 24px;
 }
 
+.bar-section {
+  background: #16213e;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.week-bar-chart {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+  align-items: end;
+  min-height: 220px;
+}
+
+.week-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.week-bar {
+  width: 100%;
+  max-width: 48px;
+  background: linear-gradient(180deg, #4ecca3, #45b7aa);
+  border-radius: 8px 8px 4px 4px;
+  min-height: 4px;
+}
+
+.week-bar-label {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.week-bar-value {
+  color: #4ecca3;
+  font-size: 12px;
+}
+
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -67,6 +107,22 @@ h1 {
 .section-header h2 {
   font-size: 16px;
   font-weight: 600;
+}
+
+.year-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.year-picker select {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  color: #eaeaea;
+  border-radius: 6px;
+  padding: 6px 8px;
 }
 
 .legend {
