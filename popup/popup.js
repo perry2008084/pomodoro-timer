@@ -52,7 +52,8 @@
     if (state.status === "paused") timerDisplay.classList.add("paused");
 
     const completedPomodoros = state.completedPomodoros || 0;
-    const interval = state.settings?.longBreakInterval || 4;
+    const rawInterval = Number(state.settings?.longBreakInterval);
+    const interval = Number.isFinite(rawInterval) && rawInterval > 0 ? rawInterval : 4;
     const progressInCycle = getCycleProgress(completedPomodoros, interval);
     sessionCount.textContent = I18N.t("pomodoroCount", {
       current: progressInCycle,

@@ -231,19 +231,18 @@
     data.sessions.forEach((session) => {
       const item = document.createElement("div");
       item.className = "session-item";
-      const sessionMode = session.mode;
       const typeLabel = {
         pomodoro: I18N.t("focusLabel"),
         shortBreak: I18N.t("shortBreakLabel"),
         longBreak: I18N.t("longBreakLabel"),
-      }[sessionMode] || sessionMode;
+      }[session.mode] || session.mode;
       const durationMin = Math.round(session.duration / 60);
       const completedAt = session.completedAt
         ? new Date(session.completedAt).toLocaleTimeString()
         : "";
 
       item.innerHTML = `
-        <span class="session-type ${sessionMode}">${typeLabel}</span>
+        <span class="session-type ${session.mode}">${typeLabel}</span>
         <span class="session-duration">${durationMin} ${I18N.t("minutesUnit")}</span>
         <span class="session-time">${completedAt}</span>
       `;

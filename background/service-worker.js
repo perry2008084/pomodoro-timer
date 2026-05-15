@@ -234,6 +234,7 @@ async function handleMessage(message) {
       if (!payload || typeof payload !== "object") {
         return { error: "Invalid data format" };
       }
+      // Keep backward compatibility with older exports that used `dailyRecords`.
       const records = payload.records || payload.dailyRecords || {};
       const settings = { ...getDefaultSettings(), ...(payload.settings || {}) };
       const timerState = payload.timerState || null;
