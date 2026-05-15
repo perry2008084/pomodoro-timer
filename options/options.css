@@ -41,7 +41,8 @@ h1 {
   margin-bottom: 8px;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 12px;
   background: #1a1a2e;
@@ -53,8 +54,26 @@ h1 {
   transition: border-color 0.2s;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
   border-color: #4ecca3;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.checkbox-group input {
+  width: auto;
 }
 
 .actions {
@@ -90,6 +109,19 @@ h1 {
 
 .btn-secondary:hover {
   background: #3a3a5a;
+}
+
+.file-picker {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.file-picker input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .status-message {

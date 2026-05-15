@@ -3,6 +3,10 @@ export const DEFAULT_SETTINGS = {
   shortBreakDuration: 5,
   longBreakDuration: 15,
   longBreakInterval: 4,
+  language: "en",
+  autoPauseEnabled: false,
+  autoPauseStart: "00:00",
+  autoPauseEnd: "00:00",
 };
 
 export class TimerEngine {
@@ -130,6 +134,7 @@ export class TimerEngine {
       remainingSeconds: this.getRemainingSeconds(),
       totalSeconds: this.getModeDuration() * 60,
       completedPomodoros: this.completedPomodoros,
+      settings: { ...this.settings },
     };
   }
 
@@ -184,6 +189,7 @@ export function formatTime(totalSeconds) {
 export function createRecord(date, session) {
   return {
     date,
+    mode: session.mode,
     type: session.mode,
     duration: session.duration,
     completedAt: new Date().toISOString(),

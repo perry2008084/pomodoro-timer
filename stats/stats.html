@@ -3,38 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro Timer - Statistics</title>
+  <title data-i18n="statsTitle">Pomodoro Timer - Statistics</title>
   <link rel="stylesheet" href="stats.css">
 </head>
 <body>
   <div class="container">
-    <h1>📊 Pomodoro Statistics</h1>
+    <h1 data-i18n="statsHeading">📊 Pomodoro Statistics</h1>
     <div class="heatmap-tooltip" id="heatmap-tooltip"></div>
 
     <div class="summary">
       <div class="stat-card">
         <div class="stat-value" id="total-pomodoros">0</div>
-        <div class="stat-label">Total Pomodoros</div>
+        <div class="stat-label" data-i18n="totalPomodoros">Total Pomodoros</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="total-hours">0h</div>
-        <div class="stat-label">Total Focus Time</div>
+        <div class="stat-label" data-i18n="totalFocusTime">Total Focus Time</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="current-streak">0</div>
-        <div class="stat-label">Day Streak</div>
+        <div class="stat-label" data-i18n="dayStreak">Day Streak</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="today-pomodoros">0</div>
-        <div class="stat-label">Today</div>
+        <div class="stat-label" data-i18n="today">Today</div>
       </div>
+    </div>
+
+    <div class="bar-section">
+      <div class="section-header">
+        <h2 data-i18n="recent7Days">Recent 7 Days</h2>
+      </div>
+      <div id="week-bar-chart" class="week-bar-chart"></div>
     </div>
 
     <div class="heatmap-section">
       <div class="section-header">
-        <h2>Daily Activity</h2>
+        <h2 data-i18n="annualHeatmap">Annual Heatmap</h2>
+        <div class="year-picker">
+          <label for="year-select" data-i18n="yearLabel">Year</label>
+          <select id="year-select"></select>
+        </div>
         <div class="legend">
-          <span>Less</span>
+          <span data-i18n="less">Less</span>
           <div class="legend-colors">
             <div class="legend-cell" style="background:#ebedf0"></div>
             <div class="legend-cell" style="background:#9be9a8"></div>
@@ -42,15 +53,15 @@
             <div class="legend-cell" style="background:#30a14e"></div>
             <div class="legend-cell" style="background:#216e39"></div>
           </div>
-          <span>More</span>
+          <span data-i18n="more">More</span>
         </div>
       </div>
       <div class="month-labels" id="month-labels"></div>
       <div class="heatmap-container" id="heatmap-container">
         <div class="day-labels">
-          <span>Mon</span>
-          <span>Wed</span>
-          <span>Fri</span>
+          <span data-i18n="mon">Mon</span>
+          <span data-i18n="wed">Wed</span>
+          <span data-i18n="fri">Fri</span>
         </div>
         <div class="heatmap-grid" id="heatmap-grid"></div>
       </div>
@@ -62,15 +73,16 @@
     </div>
 
     <div class="actions">
-      <button id="btn-export" class="btn btn-primary">📥 Export JSON</button>
-      <button id="btn-clear" class="btn btn-danger">🗑 Clear All Data</button>
+      <button id="btn-export" class="btn btn-primary" data-i18n="exportJson">📥 Export JSON</button>
+      <button id="btn-clear" class="btn btn-danger" data-i18n="clearAllData">🗑 Clear All Data</button>
     </div>
 
     <div class="footer">
-      <a href="#" id="btn-back">← Back to Timer</a>
+      <a href="#" id="btn-back" data-i18n="backToTimer">← Back to Timer</a>
     </div>
   </div>
 
+  <script src="../core/i18n.js"></script>
   <script src="stats.js"></script>
 </body>
 </html>

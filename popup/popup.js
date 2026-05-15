@@ -51,8 +51,15 @@
     if (state.status === "running") timerDisplay.classList.add("running");
     if (state.status === "paused") timerDisplay.classList.add("paused");
 
-    const settings = state.completedPomodoros || 0;
-    sessionCount.textContent = `Pomodoro ${settings}`;
+    const completedPomodoros = state.completedPomodoros || 0;
+    const interval = state.settings?.longBreakInterval || 4;
+    const progressInCycle = interval > 0
+      ? (completedPomodoros % interval === 0 && completedPomodoros > 0 ? interval : completedPomodoros % interval)
+      : completedPomodoros;
+    sessionCount.textContent = I18N.t("pomodoroCount", {
+      current: progressInCycle,
+      interval,
+    });
 
     modeTabs.forEach((tab) => {
       tab.classList.toggle("active", tab.dataset.mode === state.mode);
@@ -128,6 +135,8 @@
   });
 
   async function init() {
+    await I18N.loadLanguage(sendMessage);
+    I18N.applyTranslations();
     const state = await sendMessage({ type: "getState" });
     updateUI(state);
   }

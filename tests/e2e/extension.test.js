@@ -68,8 +68,14 @@ describe("E2E: Chrome Extension", () => {
     expect(html).toContain('id="short-break-duration"');
     expect(html).toContain('id="long-break-duration"');
     expect(html).toContain('id="long-break-interval"');
+    expect(html).toContain('id="auto-pause-enabled"');
+    expect(html).toContain('id="auto-pause-start"');
+    expect(html).toContain('id="auto-pause-end"');
+    expect(html).toContain('id="language-select"');
     expect(html).toContain('id="btn-save"');
     expect(html).toContain('id="btn-reset"');
+    expect(html).toContain('id="btn-export"');
+    expect(html).toContain('id="import-file"');
   });
 
   test("stats HTML should contain heatmap and export elements", () => {
@@ -78,6 +84,8 @@ describe("E2E: Chrome Extension", () => {
       "utf8"
     );
     expect(html).toContain('id="heatmap-grid"');
+    expect(html).toContain('id="week-bar-chart"');
+    expect(html).toContain('id="year-select"');
     expect(html).toContain('id="btn-export"');
     expect(html).toContain('id="total-pomodoros"');
     expect(html).toContain('id="total-hours"');
@@ -151,6 +159,7 @@ describe("E2E: Chrome Extension", () => {
       "utf8"
     );
     expect(js).toContain("renderHeatmap");
+    expect(js).toContain("renderRecentBarChart");
     expect(js).toContain("exportJSON");
     expect(js).toContain("updateSummary");
     expect(js).toContain("btn-export");
@@ -170,6 +179,8 @@ describe("E2E: Chrome Extension", () => {
     expect(js).toContain('"setMode"');
     expect(js).toContain('"getRecords"');
     expect(js).toContain('"updateSettings"');
+    expect(js).toContain('"importData"');
+    expect(js).toContain('"exportData"');
   });
 });
 
