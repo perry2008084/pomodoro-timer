@@ -55,7 +55,7 @@ function isWithinAutoPauseWindow(settings, now = new Date()) {
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
   const startMinutes = parseTimeToMinutes(settings.autoPauseStart);
   const endMinutes = parseTimeToMinutes(settings.autoPauseEnd);
-  if (startMinutes === endMinutes) return true;
+  if (startMinutes === endMinutes) return false;
   if (startMinutes < endMinutes) {
     return nowMinutes >= startMinutes && nowMinutes < endMinutes;
   }

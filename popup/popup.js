@@ -53,9 +53,7 @@
 
     const completedPomodoros = state.completedPomodoros || 0;
     const interval = state.settings?.longBreakInterval || 4;
-    const progressInCycle = interval > 0
-      ? (completedPomodoros % interval === 0 && completedPomodoros > 0 ? interval : completedPomodoros % interval)
-      : completedPomodoros;
+    const progressInCycle = getCycleProgress(completedPomodoros, interval);
     sessionCount.textContent = I18N.t("pomodoroCount", {
       current: progressInCycle,
       interval,
@@ -91,6 +89,13 @@
       clearInterval(updateInterval);
       updateInterval = null;
     }
+  }
+
+  function getCycleProgress(completedPomodoros, interval) {
+    if (interval <= 0) return completedPomodoros;
+    const cycleProgress = completedPomodoros % interval;
+    if (cycleProgress === 0 && completedPomodoros > 0) return interval;
+    return cycleProgress;
   }
 
   btnStart.addEventListener("click", async () => {

@@ -72,6 +72,9 @@
       const n = parseInt(v, 10);
       if (isNaN(n) || n <= 0) return false;
     }
+    const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
+    if (!timePattern.test(autoPauseStartInput.value || "")) return false;
+    if (!timePattern.test(autoPauseEndInput.value || "")) return false;
     return true;
   }
 

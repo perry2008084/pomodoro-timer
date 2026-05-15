@@ -231,7 +231,7 @@
     data.sessions.forEach((session) => {
       const item = document.createElement("div");
       item.className = "session-item";
-      const sessionMode = session.mode || session.type;
+      const sessionMode = session.mode;
       const typeLabel = {
         pomodoro: I18N.t("focusLabel"),
         shortBreak: I18N.t("shortBreakLabel"),
@@ -315,9 +315,24 @@
     window.close();
   });
 
+  function normalizeRecords(records) {
+    const normalized = {};
+    Object.entries(records || {}).forEach(([date, dayData]) => {
+      const sessions = (dayData.sessions || []).map((session) => ({
+        ...session,
+        mode: session.mode || session.type,
+      }));
+      normalized[date] = {
+        ...dayData,
+        sessions,
+      };
+    });
+    return normalized;
+  }
+
   async function loadStats() {
     const records = await sendMessage({ type: "getRecords" });
-    currentRecords = records || {};
+    currentRecords = normalizeRecords(records || {});
     buildYearSelect(currentRecords);
     renderAll();
   }
